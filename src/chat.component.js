@@ -2,10 +2,11 @@ angular.
 module('myApp')
     .component('chat', {
         templateUrl: './src/chat.component.html',
-        controller: function chatController($scope, $interval, usersMessagesConst) {
+        controller: function chatController($scope, $interval, usersMessagesConst, intervalService) {
             $scope.username = localStorage.getItem('currentUser');
             $scope.messages = [];
             $scope.message = this.value;
+            var audio = new Audio('./src/gets-in-the-way.mp3');
             $scope.sendMsg = function() {
                 if ($scope.message && localStorage.getItem('currentUser')){
                     var msg = {
@@ -15,19 +16,13 @@ module('myApp')
                     };
                     $scope.messages.push(msg);
                     $scope.message = "";
+                    audio.play();
                 }
             };
-           function simulateUsers() {
-                var randomMsg = usersMessagesConst.messages[Math.floor(Math.random() * 3)];
-                $scope.messages.push({
-                    "author" : randomMsg.author,
-                    "time" : new Date(),
-                    "content": randomMsg.content
-                });
-            }
 
             $interval( function(){
-                simulateUsers()
+                intervalService.xx()
             },  3000);
+
         }
     });

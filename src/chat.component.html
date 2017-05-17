@@ -3,7 +3,6 @@
     Type message: <br>
 <textarea  autofocus name="message" cols="30" rows="10" ng-model="message"></textarea> <br>
     <button type="submit" ng-click="sendMsg()">Send</button>
-    <button type="submit" ng-click="simulateUsers()">simulate</button>
     <br>
     Chat: <br>
     <div ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
