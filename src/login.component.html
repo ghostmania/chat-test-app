@@ -1,4 +1,4 @@
 <label>Username <br>
-    <input type="text" ng-model="usersInput">
+    <input type="text" ng-model="usersInput" autofocus ng-keypress="$event.keyCode==13 && userLogin()">
 </label> <br>
 <button type="submit" ng-click="userLogin()">Login</button>

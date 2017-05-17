@@ -1,6 +1,20 @@
 <div>
+    Logged in as : {{username}} <br>
     Type message: <br>
-<textarea name="message" cols="30" rows="10" ng-model="message"></textarea> <br>
+<textarea  autofocus name="message" cols="30" rows="10" ng-model="message"></textarea> <br>
     <button type="submit" ng-click="sendMsg()">Send</button>
-    <span>some text</span>
+    <button type="submit" ng-click="simulateUsers()">simulate</button>
+    <br>
+    Chat: <br>
+    <div ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
+        <p>
+           {{message.author}} said:
+        </p>
+        <p>
+            {{message.time | date : "mediumTime"}}
+        </p>
+        <p>
+            {{message.content}}
+        </p>
+    </div>
 </div>
