@@ -3,6 +3,7 @@ angular
     .controller('MainController', MainController);
 
 function MainController($scope, $state, intervalService) {
+    $state.go('login');
 
     $scope.logOut = function () {
         intervalService.stop();
