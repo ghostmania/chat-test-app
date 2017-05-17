@@ -2,12 +2,11 @@ angular
     .module('myApp')
     .controller('MainController', MainController);
 
-function MainController($scope, $state, $interval) {
+function MainController($scope, $state, intervalService) {
 
     $scope.logOut = function () {
-        // $interval.cancel(intervall);
+        intervalService.stop();
         localStorage.setItem('currentUser', "");
         $state.go('login');
-        console.log('Logged Out');
     }
 }

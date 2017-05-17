@@ -33,7 +33,7 @@ function getuser($state) {
 function checkUser($state) {
     var user = localStorage.getItem('currentUser');
     if (user) { // use angular localstorage
-        console.log('Already loggen in');
+        alert('Already loggen in');
         return $state.go('chat')
     }
 }

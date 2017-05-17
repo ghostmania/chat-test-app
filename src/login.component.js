@@ -6,7 +6,6 @@ angular.
             $scope.usersInput = this.value;
             $scope.userLogin = function() {
                 if ($scope.usersInput){
-                    console.log('Current user is', $scope.usersInput);
                     localStorage.setItem('currentUser', $scope.usersInput);
                     $state.go('chat');
                 }

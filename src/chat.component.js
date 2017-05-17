@@ -4,9 +4,8 @@ module('myApp')
         templateUrl: './src/chat.component.html',
         controller: function chatController($scope, $interval, usersMessagesConst, intervalService) {
             $scope.username = localStorage.getItem('currentUser');
-            $scope.messages = [];
+            $scope.messages = intervalService.messages;
             $scope.message = this.value;
-            var audio = new Audio('./src/gets-in-the-way.mp3');
             $scope.sendMsg = function() {
                 if ($scope.message && localStorage.getItem('currentUser')){
                     var msg = {
@@ -16,13 +15,11 @@ module('myApp')
                     };
                     $scope.messages.push(msg);
                     $scope.message = "";
-                    audio.play();
+                    intervalService.audio.play();
                 }
             };
 
-            $interval( function(){
-                intervalService.xx()
-            },  3000);
+            intervalService.start();
 
         }
     });

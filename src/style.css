@@ -1,6 +1,15 @@
 .mine {
-    color: chartreuse;
+    color: green;
+    text-align: left;
+    margin-bottom: 10px;
+    background-color: bisque;
 }
 .others {
-    color: blue;
+    color: dodgerblue;
+    text-align: right;
+    margin-bottom: 10px;
+    background-color: lightgray;
+}
+div p {
+    margin: 1px;
 }
