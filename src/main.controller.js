@@ -7,7 +7,7 @@ angular
     .controller('MainController', MainController);
 
 function MainController($scope, $state, intervalService) {
-
+    $scope.test11 = document.getElementById('chatArea');
     $scope.logOut = function () {
         intervalService.stop();
         intervalService.messages = [];

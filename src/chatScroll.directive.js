@@ -4,14 +4,16 @@ angular
 
 function chatScroll() {
 
-    chatt = function () {
-        .("#chatArea").animate({scrollTop: $(document).height()}, "slow");
-        return false;
+    function link(scope, elem, attrs) {
+        scope.$watch(
+            scope.__height = elem.height()
+        );
+    }
 
-    };
 
     return {
         restrict: 'A',
-        chat: chatt
+        link: link
+
     }
 }
