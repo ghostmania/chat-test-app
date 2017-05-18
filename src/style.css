@@ -1,5 +1,6 @@
 .mine {
     text-align: left;
+    /*padding: 0px;*/
     margin-bottom: 10px;
     background-color: #40C4FF!important;
 }
@@ -8,6 +9,9 @@
     margin-bottom: 10px;
     background-color: #CDDC39!important;
 }
-div p {
-    margin: 1px;
+p {
+    word-break: break-all;
+}
+#chatArea {
+    height: 450px;
 }

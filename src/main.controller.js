@@ -11,6 +11,7 @@ function MainController($scope, $state, intervalService) {
 
     $scope.logOut = function () {
         intervalService.stop();
+        intervalService.messages = [];
         localStorage.setItem('currentUser', "");
         $state.go('login');
     }

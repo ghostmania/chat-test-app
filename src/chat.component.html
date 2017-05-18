@@ -9,17 +9,19 @@
     </md-input-container>
     <md-content flex layout-padding>
         <p style="text-align: center">Chat:</p>
-        <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{message.author}} said:</span>
-                    <span class="md-subhead">{{message.time | date : "mediumTime"}}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>{{message.content}}</p>
-            </md-card-content>
-        </md-card>
+        <div id="chatArea">
+            <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{message.author}} said:</span>
+                        <span class="md-subhead">{{message.time | date : "mediumTime"}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>{{message.content}}</p>
+                </md-card-content>
+            </md-card>
+        </div>
     </md-content>
 
 </div>
