@@ -19,8 +19,6 @@ module('myApp')
                 }
                 document.getElementById('message').focus();
             };
-
-            // intervalService.start();
-
+            intervalService.start();
         }
     });

@@ -9,7 +9,7 @@
     </md-input-container>
     <md-content flex layout-padding>
         <p style="text-align: center">Chat:</p>
-        <div id="chatArea">
+        <div id="chatArea" chat-scroll="chat">
             <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
                 <md-card-title>
                     <md-card-title-text>
