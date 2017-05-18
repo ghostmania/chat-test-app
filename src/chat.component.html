@@ -1,19 +1,25 @@
 <div>
-    Logged in as : {{username}} <br>
-    Type message: <br>
-<textarea  autofocus name="message" cols="30" rows="10" ng-model="message"></textarea> <br>
-    <button type="submit" ng-click="sendMsg()">Send</button>
-    <br>
-    Chat: <br>
-    <div ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
-        <p>
-           {{message.author}} said:
-        </p>
-        <p>
-            {{message.time | date : "mediumTime"}}
-        </p>
-        <p>
-            {{message.content}}
-        </p>
-    </div>
+    <md-content flex layout-padding>
+        Logged in as : {{username}}
+    </md-content>
+    <md-input-container>
+        <label>Type your message</label>
+        <textarea  autofocus id="message" cols="50" rows="5" ng-model="message"></textarea>
+        <md-button class="md-raised md-primary" type="submit" ng-click="sendMsg()">Send</md-button>
+    </md-input-container>
+    <md-content flex layout-padding>
+        <p style="text-align: center">Chat:</p>
+        <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{message.author}} said:</span>
+                    <span class="md-subhead">{{message.time | date : "mediumTime"}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>{{message.content}}</p>
+            </md-card-content>
+        </md-card>
+    </md-content>
+
 </div>

@@ -14,7 +14,7 @@ function intervalService($interval, usersMessagesConst) {
             "content": randomMsg.content
         });
         _this.audio.play();
-    };
+    }
 
      this.start = function () {
          _this.interval = $interval( simulateUsers,  3000);

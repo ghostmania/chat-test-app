@@ -24,8 +24,7 @@ function config($stateProvider) {
 
 function getuser($state) {
     var user = localStorage.getItem('currentUser');
-    if (!user) { // use angular localstorage
-        console.log('No current user');
+    if (!user) {
         return $state.go('login')
     }
 }
