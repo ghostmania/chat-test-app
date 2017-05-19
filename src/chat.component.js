@@ -18,14 +18,13 @@ module('myApp')
                     };
                     $scope.messages.push(msg);
                     $scope.message = "";
-                    // intervalService.audio.play();
+                    intervalService.audio.play();
                     $timeout(function(){
                         $scope.scrollToBottom = false
-                        console.log('123213213213', $scope.scrollToBottom)
-                    } , 3000)
+                    } , 1000)
                 }
-                document.getElementById('messageArea').focus;
+                document.getElementById('messageArea').focus();
             };
-            // intervalService.start();
+            intervalService.start();
         }
     });
