@@ -4,12 +4,12 @@
     </md-content>
     <md-input-container>
         <label>Type your message</label>
-        <textarea  autofocus id="message" cols="50" rows="5" ng-model="message"></textarea>
+        <textarea ng-keypress="$event.keyCode==13 && sendMsg()" id="messageArea" cols="50" rows="5" ng-model="message"></textarea>
         <md-button class="md-raised md-primary" type="submit" ng-click="sendMsg()">Send</md-button>
     </md-input-container>
     <p style="text-align: center">Chat:</p>
     <md-content>
-        <div id="chatArea" chat-scroll>
+        <div id="chatArea" chat-scroll="messages">
             <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
                 <md-card-title>
                     <md-card-title-text>

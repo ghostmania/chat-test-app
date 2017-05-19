@@ -3,8 +3,7 @@ angular
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login")
-
+    $urlRouterProvider.otherwise("/login");
     $stateProvider
         .state({
             name: 'login',

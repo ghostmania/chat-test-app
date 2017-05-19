@@ -3,17 +3,18 @@ angular
     .directive('chatScroll', chatScroll);
 
 function chatScroll() {
-
-    // function link(scope, elem, attrs) {
-    //     scope.$watch(
-    //         scope.__height = elem.height()
-    //     );
-    // }
-
-
+    function link(scope, element) {
+        scope.$watchCollection('chatScroll', function (newValue) {
+            if (newValue)
+            {
+                $(element).parent().scrollTop($(element)[0].scrollHeight);
+            }
+        });
+    }
     return {
-        restrict: 'A'
-        // link: link
-
+        scope: {
+          chatScroll: "="
+        },
+        link: link
     }
 }

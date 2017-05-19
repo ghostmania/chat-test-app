@@ -4,7 +4,7 @@ angular
 
 function intervalService($interval, usersMessagesConst) {
     var _this = this;
-    this.audio = new Audio('./src/gets-in-the-way.mp3');
+    this.audio = new Audio('./src/chatSound.mp3');
     this.messages = [];
     function simulateUsers() {
         var randomMsg = usersMessagesConst.messages[Math.floor(Math.random() * 3)];

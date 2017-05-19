@@ -6,6 +6,7 @@ module('myApp')
             $scope.username = localStorage.getItem('currentUser');
             $scope.messages = intervalService.messages;
             $scope.message = this.value;
+            document.getElementById('messageArea').focus();
             $scope.sendMsg = function() {
                 if ($scope.message && localStorage.getItem('currentUser')){
                     var msg = {
@@ -17,7 +18,7 @@ module('myApp')
                     $scope.message = "";
                     intervalService.audio.play();
                 }
-                document.getElementById('message').focus();
+                document.getElementById('messageArea').focus;
             };
             intervalService.start();
         }
