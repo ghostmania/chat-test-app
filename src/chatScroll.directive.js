@@ -4,16 +4,16 @@ angular
 
 function chatScroll() {
 
-    function link(scope, elem, attrs) {
-        scope.$watch(
-            scope.__height = elem.height()
-        );
-    }
+    // function link(scope, elem, attrs) {
+    //     scope.$watch(
+    //         scope.__height = elem.height()
+    //     );
+    // }
 
 
     return {
-        restrict: 'A',
-        link: link
+        restrict: 'A'
+        // link: link
 
     }
 }

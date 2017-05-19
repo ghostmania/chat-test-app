@@ -2,7 +2,9 @@ angular
     .module('myApp')
     .config(config);
 
-function config($stateProvider) {
+function config($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/login")
+
     $stateProvider
         .state({
             name: 'login',
