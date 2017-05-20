@@ -28,3 +28,5 @@ function intervalService($interval, usersMessagesConst) {
     }
 
 }
+
+//todo test
