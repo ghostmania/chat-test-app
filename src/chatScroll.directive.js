@@ -1,4 +1,7 @@
-angular
+(function() {
+    'use strict';
+
+    angular
     .module('myApp')
     .directive('chatScroll', chatScroll);
 
@@ -17,3 +20,4 @@ function chatScroll() {
         link: link
     }
 }
+})();

@@ -1,4 +1,7 @@
-angular
+(function() {
+    'use strict';
+
+    angular
     .module("myApp")
     .service('intervalService', intervalService);
 
@@ -28,3 +31,4 @@ function intervalService($interval, usersMessagesConst) {
     }
 
 }
+})();

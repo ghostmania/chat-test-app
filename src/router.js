@@ -1,4 +1,7 @@
-angular
+(function() {
+    'use strict';
+
+    angular
     .module('myApp')
     .config(config);
 
@@ -39,3 +42,4 @@ function checkUser($state) {
         return $state.go('chat')
     }
 }
+})();

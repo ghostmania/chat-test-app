@@ -1,4 +1,7 @@
-angular.
+(function() {
+    'use strict';
+
+    angular.
     module('myApp')
     .component('login', {
         templateUrl: './src/login.component.html',
@@ -12,3 +15,4 @@ angular.
             }
         }
     });
+})();

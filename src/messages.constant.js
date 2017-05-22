@@ -1,4 +1,7 @@
-angular.
+(function() {
+    'use strict';
+
+    angular.
     module('myApp')
     .constant(
         'usersMessagesConst', {
@@ -21,3 +24,4 @@ angular.
             ]
         }
     );
+})();

@@ -1,4 +1,7 @@
-angular
+(function() {
+    'use strict';
+
+    angular
     .module('myApp')
     .controller('MainController', MainController);
 
@@ -10,3 +13,4 @@ function MainController($scope, $state, intervalService) {
         $state.go('login');
     }
 }
+})();

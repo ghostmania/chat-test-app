@@ -1,5 +1,8 @@
-angular.
-module('myApp')
+(function() {
+    'use strict';
+
+    angular
+    .module('myApp')
     .component('chat', {
         templateUrl: './src/chat.component.html',
         controller: function chatController($scope, $timeout, $interval, usersMessagesConst, intervalService) {
@@ -28,3 +31,4 @@ module('myApp')
             intervalService.start();
         }
     });
+})();
