@@ -2,8 +2,10 @@ angular
     .module('myApp')
     .config(config);
 
-function config($stateProvider, $urlRouterProvider) {
+function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     $urlRouterProvider.otherwise("/login");
+    $mdThemingProvider.theme('blue', 'default')
+        .primaryPalette('blue');
     $stateProvider
         .state({
             name: 'login',

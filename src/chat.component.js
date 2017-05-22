@@ -26,6 +26,5 @@ module('myApp')
                 document.getElementById('messageArea').focus();
             };
             intervalService.start();
-            //todo some changes
         }
     });
