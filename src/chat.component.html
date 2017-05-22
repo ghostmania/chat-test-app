@@ -1,16 +1,16 @@
 <div>
     <md-content flex layout-padding>
-        Logged in as : {{username}}
+        Logged in as : {{chatController.username}}
     </md-content>
     <md-input-container>
         <label>Type your message</label>
-        <textarea ng-keypress="$event.keyCode==13 && sendMsg()" id="messageArea" cols="50" rows="5" ng-model="message"></textarea>
-        <md-button class="md-raised md-primary" type="submit" ng-click="sendMsg()">Send</md-button>
+        <textarea ng-keypress="$event.keyCode==13 && chatController.sendMsg()" id="messageArea" cols="50" rows="5" ng-model="chatController.message"></textarea>
+        <md-button class="md-raised md-primary" type="submit" ng-click="chatController.sendMsg()">Send</md-button>
     </md-input-container>
     <p style="text-align: center">Chat:</p>
     <md-content id="mdContent">
-        <div id="chatArea" chat-scroll="scrollToBottom">
-            <md-card ng-repeat="message in messages track by $index" ng-class="message.author == username ? 'mine' : 'others'">
+        <div id="chatArea" chat-scroll="chatController.scrollToBottom">
+            <md-card ng-repeat="message in chatController.messages track by $index" ng-class="message.author == chatController.username ? 'mine' : 'others'">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{message.author}} said:</span>
