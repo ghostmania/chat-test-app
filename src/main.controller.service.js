@@ -5,13 +5,14 @@
     .module("myApp")
     .service("mainControllerService", mainControllerService);
 
-function mainControllerService($state, intervalService) {
+function mainControllerService($state, chatService) {
     var vm = this;
     vm.logOut = logOut;
 
     function logOut() {
-        intervalService.stop();
-        intervalService.messages = [];
+        chatService.stop();
+        chatService.messages = [];
+        // chatService.username = "";
         localStorage.setItem('currentUser', "");
         $state.go('login');
     }

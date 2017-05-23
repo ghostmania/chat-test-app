@@ -1,20 +1,26 @@
 (function() {
     'use strict';
 
-    angular.
-    module('myApp')
+    angular
+    .module('myApp')
     .component('login', {
         templateUrl: './src/login.component.html',
-        controller: loginController
+        controller: loginController,
+        controllerAs: 'loginController'
     });
 
-function loginController($scope, $state) {
-    $scope.usersInput = this.value;
-    $scope.userLogin = function() {
-        if ($scope.usersInput){
-            localStorage.setItem('currentUser', $scope.usersInput);
+function loginController($state) {
+    var vm = this;
+    vm.usersInput = "";
+    vm.userLogin = userLogin;
+
+    function userLogin() {
+        if (vm.usersInput){
+            localStorage.setItem('currentUser', vm.usersInput);
             $state.go('chat');
         }
     }
+
+
 }
 })();

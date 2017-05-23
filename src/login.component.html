@@ -1,9 +1,9 @@
 <p style="text-align: center">To enter Chat, please enter your username:</p>
 <md-input-container>
         <label>Username</label>
-        <input required type="text" ng-model="usersInput" autofocus ng-keypress="$event.keyCode==13 && userLogin()">
-        <div ng-messages="usersInput.$error">
+        <input required type="text" ng-model="loginController.usersInput" autofocus ng-keypress="$event.keyCode==13 && loginController.userLogin()">
+        <div ng-messages="loginController.usersInput.$error">
                 <div ng-message="required">Username is required.</div>
         </div>
 </md-input-container>
-<md-button class="md-raised md-primary" type="submit" ng-click="userLogin()">Login</md-button>
+<md-button class="md-raised md-primary" type="submit" ng-click="loginController.userLogin()">Login</md-button>

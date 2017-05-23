@@ -9,33 +9,29 @@
         controllerAs: 'chatController'
     });
 
-function chatController($timeout, intervalService) {
-    document.getElementById('messageArea').focus();
+function chatController(chatService, $timeout) {
     var vm = this;
-    vm.username = localStorage.getItem('currentUser');
-    vm.messages = intervalService.messages;
-    vm.message = this.value;
+    vm.username = "";
+    vm.message = "";
     vm.scrollToBottom = false;
+    vm.messages = chatService.messages;
     vm.sendMsg = sendMsg;
-    intervalService.start();
+    vm.resetName = resetName;
+    chatService.start();
+
+
 
     function sendMsg() {
-        if (vm.message && localStorage.getItem('currentUser')) {
-            vm.scrollToBottom = true;
-            var msg = {
-                author: localStorage.getItem('currentUser'),
-                time: new Date(),
-                content: vm.message
-            };
-            vm.messages.push(msg);
-            vm.message = "";
-            intervalService.audio.play();
-            $timeout(function(){
-                vm.scrollToBottom = false
-            } , 2000);
+        vm.scrollToBottom = true;
+        chatService.sendMsg(vm.message, vm.username);
+        vm.message = "";
+        $timeout(function(){
+            vm.scrollToBottom = false
+        } , 500);
+    }
 
-        }
-        document.getElementById('messageArea').focus();
+    function resetName() {
+        vm.username = localStorage.getItem('currentUser');
     }
 
 }
