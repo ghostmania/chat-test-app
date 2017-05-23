@@ -7,7 +7,8 @@
 
 function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     $urlRouterProvider.otherwise("/login");
-    $mdThemingProvider.theme('blue', 'default')
+    $mdThemingProvider
+        .theme('blue', 'default')
         .primaryPalette('blue');
     $stateProvider
         .state({
@@ -38,7 +39,7 @@ function getuser($state) {
 function checkUser($state) {
     var user = localStorage.getItem('currentUser');
     if (user) {
-        alert('Already loggen in');
+        alert('Already logged in');
         return $state.go('chat')
     }
 }
