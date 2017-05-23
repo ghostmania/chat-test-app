@@ -42,4 +42,5 @@ function checkUser($state) {
         return $state.go('chat')
     }
 }
+
 })();

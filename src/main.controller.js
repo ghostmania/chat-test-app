@@ -5,9 +5,13 @@
     .module('myApp')
     .controller('MainController', MainController);
 
-function MainController(mainControllerService) {
-    this.logOut = function () {
-        mainControllerService.logOut();
+function MainController(authService) {
+    var vm = this;
+    vm.logOut = logOut;
+
+    //functions
+    function logOut() {
+        authService.logOut();
     }
 }
 })();
