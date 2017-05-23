@@ -9,18 +9,15 @@
         controllerAs: 'loginController'
     });
 
-function loginController($state) {
+function loginController(authService) {
     var vm = this;
     vm.usersInput = "";
     vm.userLogin = userLogin;
 
+    //functions
     function userLogin() {
-        if (vm.usersInput){
-            localStorage.setItem('currentUser', vm.usersInput);
-            $state.go('chat');
-        }
+        authService.userLogin(vm.usersInput);
     }
-
 
 }
 })();

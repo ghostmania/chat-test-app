@@ -19,8 +19,7 @@ function chatController(chatService, $timeout) {
     vm.resetName = resetName;
     chatService.start();
 
-
-
+    //functions
     function sendMsg() {
         vm.scrollToBottom = true;
         chatService.sendMsg(vm.message, vm.username);

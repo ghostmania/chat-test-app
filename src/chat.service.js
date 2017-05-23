@@ -5,11 +5,10 @@
         .module("myApp")
         .service("chatService", chatService);
 
-    function chatService($timeout, $interval, usersMessagesConst) {
+function chatService($interval, usersMessagesConst) {
         var vm = this;
         vm.messages = [];
         vm.sendMsg = sendMsg;
-        // vm.scrollToBottom = false;
         vm.audio = new Audio('./src/chatSound.mp3');
         vm.messages = [];
         vm.simulateUsers = simulateUsers;
@@ -17,6 +16,7 @@
         vm.start = start;
         vm.stop = stop;
 
+        //functions
         function simulateUsers() {
             var randomMsg = usersMessagesConst.messages[Math.floor(Math.random() * 3)];
             vm.messages.push({
@@ -41,24 +41,14 @@
 
         function sendMsg(message, username) {
             if (message && username) {
-                // vm.scrollToBottom = true;
-                // console.log(vm.scrollToBottom)
                 var msg = {
                     author: username,
                     time: new Date(),
                     content: message
                 };
                 vm.messages.push(msg);
-                // vm.audio.play();
-                // $timeout(function(){
-                //     vm.scrollToBottom = false
-                // } , 2000);
-                // console.log(vm.scrollToBottom)
-
-
             }
             document.getElementById('messageArea').focus();
         }
-    }
-
+}
 })();
