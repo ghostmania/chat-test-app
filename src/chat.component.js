@@ -21,9 +21,7 @@ function chatController($timeout, intervalService) {
 
     function sendMsg() {
         if (vm.message && localStorage.getItem('currentUser')) {
-            console.log(vm.scrollToBottom)
             vm.scrollToBottom = true;
-            console.log(vm.scrollToBottom)
             var msg = {
                 author: localStorage.getItem('currentUser'),
                 time: new Date(),
@@ -35,7 +33,6 @@ function chatController($timeout, intervalService) {
             $timeout(function(){
                 vm.scrollToBottom = false
             } , 2000);
-            console.log(vm.scrollToBottom)
 
         }
         document.getElementById('messageArea').focus();
