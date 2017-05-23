@@ -4,7 +4,7 @@
     angular
     .module('myApp')
     .component('chat', {
-        templateUrl: './src/chat.component.html',
+        templateUrl: './app/components/chat.component.html',
         controller: chatController,
         controllerAs: 'chatController'
     });

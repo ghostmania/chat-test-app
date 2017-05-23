@@ -9,7 +9,7 @@ function chatService($interval, usersMessagesConst) {
         var vm = this;
         vm.messages = [];
         vm.sendMsg = sendMsg;
-        vm.audio = new Audio('./src/chatSound.mp3');
+        vm.audio = new Audio('./app/src/chatSound.mp3');
         vm.messages = [];
         vm.simulateUsers = simulateUsers;
         vm.randomTime = randomTime;
@@ -24,7 +24,7 @@ function chatService($interval, usersMessagesConst) {
                 "time" : new Date(),
                 "content": randomMsg.content
             });
-            // vm.audio.play();
+            vm.audio.play();
         }
 
         function randomTime() {
@@ -47,6 +47,7 @@ function chatService($interval, usersMessagesConst) {
                     content: message
                 };
                 vm.messages.push(msg);
+                vm.audio.play();
             }
             document.getElementById('messageArea').focus();
         }
