@@ -13,10 +13,15 @@ function loginController(authService) {
     var vm = this;
     vm.usersInput = "";
     vm.userLogin = userLogin;
+    vm.checkLoginState = checkLoginState;
 
     //functions
     function userLogin() {
         authService.userLogin(vm.usersInput);
+    }
+
+    function checkLoginState() {
+        authService.checkLoginState();
     }
 
 }

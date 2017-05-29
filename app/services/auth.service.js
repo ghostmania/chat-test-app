@@ -5,12 +5,13 @@
         .module("myApp")
         .service("authService", authService);
 
-function authService($state, chatService, $rootScope) {
+function authService($state, chatService) {
         var vm = this;
         vm.userLogin = userLogin;
         vm.logOut = logOut;
-        vm.watchLoginChange = watchLoginChange;
-        vm.getUserInfo = getUserInfo;
+        vm.testAPI = testAPI;
+        vm.statusChangeCallback = statusChangeCallback;
+        vm.checkLoginState = checkLoginState;
 
     //functions
         function userLogin(userInput) {
@@ -21,43 +22,43 @@ function authService($state, chatService, $rootScope) {
         }
 
         function logOut() {
-
             chatService.stop();
             chatService.messages = [];
             localStorage.setItem('currentUser', "");
             $state.go('login');
         }
 
-        function watchLoginChange() {
-
-            // var _self = this;
-
-            FB.Event.subscribe('auth.authResponseChange', function(res) {
-
-                if (res.status === 'connected') {
-
-                    console.log('The user is already logged, is possible retrieve his personal info')
-                    vm.getUserInfo();
-                    console.log(res.authResponse)
-
-                }
-                else {
-                    console.log('The user is not logged to the app, or into Facebook: destroy the session on the server.')
-                }
-
-            });
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            vm.testAPI();
+        } else {
+            console.log('The person is not logged into your app or we are unable to tell.')
         }
+    }
 
-        function getUserInfo() {
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            vm.statusChangeCallback(response);
+        });
+    }
 
-            var _self = this;
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+            console.log(response);
+            console.log('Successful login for: ' + response.name);
+            console.log(response.email)
+        },
+            {
+                scope: 'email'
+            }
 
-            FB.api('/me', function(res) {
-                $rootScope.$apply(function() {
-                    $rootScope.user = _self.user = res;
-                });
-            });
+        );
+    }
 
-        }
+
 }
 })();
