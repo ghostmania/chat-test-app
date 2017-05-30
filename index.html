@@ -23,22 +23,16 @@
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 </head>
 <body ng-app="myApp" >
-
-
-
-
     <div id="container" ng-controller="MainController as maincontroller">
-
         <md-content md-theme="blue">
             <section layout="row" layout-align="center center">
                 <md-button class="md-raised md-primary left" ui-sref="login">Login</md-button>
                 <md-button class="md-raised md-primary middle" ui-sref="chat">Chat</md-button>
                 <md-button class="md-raised md-primary right" ng-click="maincontroller.logOut()">Logout</md-button>
-                <md-button class="md-raised md-primary right" ng-click="maincontroller.FB()">FB</md-button>
-                <md-button class="md-raised md-primary right" ng-click="maincontroller.getUserInfo()">User Info</md-button>
             </section>
             <ui-view layout="row" layout-align="center center"></ui-view>
         </md-content>
+        <div id="fb-root"></div>
     </div>
 </body>
 </html>

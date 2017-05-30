@@ -1,6 +1,11 @@
 <div>
     <md-content flex layout-padding ng-init="chatController.resetName()">
-        Logged in as : {{chatController.username}}
+        <p>
+            Current user : {{chatController.username}}
+        </p>
+        <p>
+            Current email : {{chatController.email}}
+        </p>
     </md-content>
     <md-input-container>
         <label>Type your message</label>

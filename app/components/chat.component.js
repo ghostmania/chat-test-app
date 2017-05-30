@@ -12,6 +12,7 @@
 function chatController(chatService, $timeout) {
     var vm = this;
     vm.username = "";
+    vm.email = "";
     vm.message = "";
     vm.scrollToBottom = false;
     vm.messages = chatService.messages;
@@ -31,6 +32,7 @@ function chatController(chatService, $timeout) {
 
     function resetName() {
         vm.username = localStorage.getItem('currentUser');
+        vm.email = localStorage.getItem('currentEmail');
     }
 
 }

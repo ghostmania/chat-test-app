@@ -6,6 +6,9 @@
     .config(config)
     .run(['$rootScope', '$window', 'authService',
         function($rootScope, $window, authService) {
+
+            $rootScope.user = {};
+
             $window.fbAsyncInit = function() {
                 // Executed when the SDK is loaded
 
@@ -14,23 +17,31 @@
                     appId: '228869647612730',
                     status: true,
                     cookie: true,
-                    channelUrl: './channel.html',
-                    xfbml: true,
-                    version    : 'v2.8'
+                    channelUrl: './src/channel.html',
+                    xfbml: true
                 });
                 // authService.statusChangeCallback();
-                FB.getLoginStatus(function(response) {
-                    authService.statusChangeCallback(response);
-                });
+                authService.watchLoginChange();
             };
-            // Load the SDK asynchronously
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            (function(d){
+                // load the Facebook javascript SDK
+
+                var js,
+                    id = 'facebook-jssdk',
+                    ref = d.getElementsByTagName('script')[0];
+
+                if (d.getElementById(id)) {
+                    return;
+                }
+
+                js = d.createElement('script');
+                js.id = id;
+                js.async = true;
+                js.src = "//connect.facebook.net/en_US/all.js";
+
+                ref.parentNode.insertBefore(js, ref);
+
+            }(document));
 
         }]);
 
